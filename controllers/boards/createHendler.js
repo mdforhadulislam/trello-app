@@ -16,7 +16,10 @@ const createBoardHendler = async (req, res) => {
     } else {
       res.status(404).json({ message: "There was a problem in your request" });
     }
-  } catch {}
+  } catch (err) {
+    console.log(err);
+    res.status(404).json({ message: "There was a server side problem " });
+  }
 };
 
 module.exports = createBoardHendler;

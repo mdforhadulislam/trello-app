@@ -4,6 +4,7 @@ const updateBoardHendler = async (req, res) => {
   try {
     const { _id } = req.params;
     const board = await Board.findById(_id);
+    
     if (board.user.email === req.session.user.email) {
       board.name = req.body.name;
       board.color = req.body.color;
@@ -12,7 +13,8 @@ const updateBoardHendler = async (req, res) => {
     } else {
       res.status(404).json({ message: "You are not update this board" });
     }
-  } catch{
+  } catch(err) {
+    console.log(err);
     res.status(500).json({ message: "There was a server side problem " });
   }
 };

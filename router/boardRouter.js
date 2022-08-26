@@ -1,9 +1,9 @@
 const Router = require("express").Router();
-const createBoardHendler = require("../controllers/board/createHendler");
-const deleteBoardHendler = require("../controllers/board/deleteHendler");
-const getBoardHendler = require("../controllers/board/getHendler");
-const singleBoardHendler = require("../controllers/board/singleHendler");
-const updateBoardHendler = require("../controllers/board/updateHendler");
+const createBoardHendler = require("../controllers/boards/createHendler");
+const deleteBoardHendler = require("../controllers/boards/deleteHendler");
+const getBoardHendler = require("../controllers/boards/getHendler");
+const singleBoardHendler = require("../controllers/boards/singleHendler");
+const updateBoardHendler = require("../controllers/boards/updateHendler");
 const { ckeckLogin } = require("../middlewares/checkLogin");
 
 // this router working single board

@@ -34,7 +34,8 @@ const registerHendler = async (req, res) => {
     } else {
       res.status(403).json({ error: "There was a problem in your request" });
     }
-  } catch (error) {
+  } catch (err) {
+    console.log(err);
     res.status(500).json({ error: "There was a server said problem" });
   }
 };

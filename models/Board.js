@@ -11,6 +11,7 @@ const boardSchema = new mongoose.Schema(
       trim: true,
     },
     user: Object,
+    list: Array,
   },
   { timestamps: true }
 );
