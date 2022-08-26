@@ -11,7 +11,6 @@ const secret = process.env.SECRET;
 // all  middlerwares connects
 app.use(cors());
 app.use(express.json());
-
 app.use(
   session({
     name: "todo-application-session-key",
@@ -30,8 +29,10 @@ require("./dbConfig");
 
 // import router files
 const authRouter = require("./router/authRouter");
+const boardRouter = require("./router/boardRouter");
 // routes configarations
 app.use("/auth", authRouter);
+app.use("/api/board", boardRouter);
 
 app.get("/", (req, res) => {
   res.send(req.session.user);
