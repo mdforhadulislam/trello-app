@@ -36,7 +36,7 @@ app.use("/api/lists", listRouter);
 app.use("/api/todos", todoRouter);
 
 app.get("/", (req, res) => {
-  res.send(`
+  res.send(` 
 <!DOCTYPE html>
 <html lang="en">
   <head>

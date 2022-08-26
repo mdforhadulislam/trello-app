@@ -1,5 +1,6 @@
 const Board = require("../../models/Board");
 const List = require("../../models/List");
+const Todo = require("../../models/Todo");
 
 const deleteBoardHendler = async (req, res) => {
   try {
@@ -8,23 +9,17 @@ const deleteBoardHendler = async (req, res) => {
     const list = board.list;
 
     if (board.user.email === req.session.user.email) {
-      const deletedlist = [];
-
       list.filter(async (item) => {
-        const deleteList = await List.findByIdAndDelete(item);
-        deletedlist.push(deleteList);
+        await List.findByIdAndDelete(item);
       });
 
       const deletedBoard = await Board.findByIdAndDelete(_id);
 
       if (deletedBoard) {
-        return res
-          .status(200)
-          .json({
-            message: "board Deleted",
-            board: deletedBoard,
-            list: deletedlist,
-          });
+        return res.status(200).json({
+          message: "board Deleted and under all list",
+          board: deletedBoard,
+        });
       } else {
         return res.status(404).json({ message: "No board found" });
       }

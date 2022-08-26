@@ -1,5 +1,5 @@
 const createListHendler = require("../controllers/lists/createHendler");
-const deleteListHendler = require("../controllers/lists/getHendler");
+const deleteListHendler = require("../controllers/lists/deleteHendler");
 const updateListHendler = require("../controllers/lists/updateHendler");
 const getListHendler = require("../controllers/lists/getHendler");
 
