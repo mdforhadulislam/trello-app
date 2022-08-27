@@ -13,12 +13,12 @@ Router.post("/login", loginHendler);
 Router.post("/logout", ckeckLogin, logoutHendler);
 
 // this router working register system
-Router.post("/register", registerHendler);
+Router.post("/register", ckeckLogin, registerHendler);
 
 // this is working user setting update
-Router.put("/register/:_id", updateUserHendler);
+Router.put("/register/:_id", ckeckLogin, updateUserHendler);
 
 // this is working user  delete
-Router.delete("/register/:_id", deleteUserHendler);
+Router.delete("/register/:_id", ckeckLogin, deleteUserHendler);
 
 module.exports = Router;
