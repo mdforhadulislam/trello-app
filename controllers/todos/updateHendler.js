@@ -18,8 +18,7 @@ const updateTodoHendler = async (req, res) => {
     } else {
       res.status(404).json({ message: "You are not update this board" });
     }
-  } catch (err) {
-    console.log(err);
+  } catch{
     res.status(500).json({ message: "There was a server side problem " });
   }
 };

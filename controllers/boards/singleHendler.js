@@ -9,8 +9,7 @@ const singleBoardHendler = async (req, res) => {
     } else {
       return res.status(404).json({ message: "Not Found" });
     }
-  } catch(err) {
-    console.log(err);
+  } catch{
     res.status(404).json({ message: "There was a problem in your request" });
   }
 };

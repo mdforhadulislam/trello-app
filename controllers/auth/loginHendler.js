@@ -29,8 +29,7 @@ const loginHendler = async (req, res) => {
     } else {
       res.status(403).json({ error: "Email Is not Mathch" });
     }
-  } catch (error) {
-    console.log(error);
+  } catch {
     res.status(500).json({ error: "There was a server said problem" });
   }
 };

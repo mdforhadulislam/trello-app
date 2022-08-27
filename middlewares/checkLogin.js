@@ -16,8 +16,7 @@ const ckeckLogin = (req, res, next) => {
     } else {
       res.status(500).send({ error: "Authontications Faild" });
     }
-  } catch (err) {
-    console.log(err);
+  } catch {
     res.status(500).send({ error: "there was a problem in server saide" });
   }
 };

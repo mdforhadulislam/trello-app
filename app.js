@@ -4,6 +4,11 @@ const session = require("express-session");
 require("dotenv").config();
 const cors = require("cors");
 
+// middlewares imports
+const requestLoger = require("./middlewares/requestLoger");
+const { ckeckLogin } = require("./middlewares/checkLogin");
+const { fileRead } = require("./common");
+
 // all env variables
 const port = process.env.PORT;
 const secret = process.env.SECRET;
@@ -19,6 +24,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use(requestLoger);
 
 // database connection
 require("./dbConfig");
@@ -28,8 +34,6 @@ const authRouter = require("./router/authRouter");
 const boardRouter = require("./router/boardRouter");
 const listRouter = require("./router/listRouter");
 const todoRouter = require("./router/todoRouter");
-const { ckeckLogin } = require("./middlewares/checkLogin");
-const { fileRead } = require("./common");
 
 // routes configarations
 app.use("/auth", authRouter);
@@ -37,8 +41,8 @@ app.use("/api/boards", ckeckLogin, boardRouter);
 app.use("/api/lists", ckeckLogin, listRouter);
 app.use("/api/todos", ckeckLogin, todoRouter);
 
-app.get("/", (req, res) => {
-  fileRead("index.html", (err, data) => {
+app.get("/:_id", (req, res) => {
+  fileRead("views/index.html", (err, data) => {
     if (!err) {
       res.send(data);
     } else {

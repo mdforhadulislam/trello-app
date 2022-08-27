@@ -21,8 +21,7 @@ const createListHendler = async (req, res) => {
     } else {
       res.status(404).json({ message: "There was a problem in your request" });
     }
-  } catch (err) {
-    console.log(err);
+  } catch {
     res.status(404).json({ message: "There was a server side problem " });
   }
 };

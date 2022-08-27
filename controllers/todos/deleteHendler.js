@@ -27,8 +27,7 @@ const deleteListHendler = async (req, res) => {
         .status(404)
         .json({ message: "you are not allow to delete this todo" });
     }
-  } catch (err) {
-    console.log(err);
+  } catch {
     res.status(404).json({ message: "There was a server side problem " });
   }
 };

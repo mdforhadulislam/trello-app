@@ -15,9 +15,7 @@ const getListHendler = async (req, res) => {
 
     res.status(200).send(allList);
 
-    //  return res.status(200).json(board);
-  } catch (err) {
-   console.log(err);
+  } catch{
     res.status(404).json({ message: "There was a problem in your request" });
   }
 };

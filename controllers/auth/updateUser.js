@@ -37,8 +37,7 @@ const updateUserHendler = async (req, res) => {
     } else {
       res.status(403).json({ error: "There was a problem in your request" });
     }
-  } catch (err) {
-    console.log(err);
+  } catch{
     res.status(500).json({ error: "There was a server said problem" });
   }
 };

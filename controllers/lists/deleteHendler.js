@@ -12,19 +12,27 @@ const deleteListHendler = async (req, res) => {
       List.findByIdAndDelete(_id).then((res1) => {
         if (res1) {
           board.list = board.list.filter((item) => item !== list._id);
-          list.todos.filter((item) => {
-            Todo.findByIdAndDelete(item).then((res) => {
-              if (res) {
-                board.save();
-                return res.status(200).json({
-                  message: "list Deleted and under all todos",
-                  list: res1,
-                });
-              } else {
-                return res.status(404).json({ message: "No list found" });
-              }
+          if (list.todos.length > 0) {
+            list.todos.filter((item) => {
+              Todo.findByIdAndDelete(item).then((res) => {
+                if (res) {
+                  board.save();
+                  return res.status(200).json({
+                    message: "list Deleted and under all todos",
+                    list: res1,
+                  });
+                } else {
+                  return res.status(404).json({ message: "No list found" });
+                }
+              });
             });
-          });
+          } else {
+            board.save();
+            return res.status(200).json({
+              message: "list Deleted and under all todos",
+              list: res1,
+            });
+          }
         }
       });
     } else {
@@ -32,8 +40,7 @@ const deleteListHendler = async (req, res) => {
         .status(404)
         .json({ message: "you are not allow to delete this list" });
     }
-  } catch (err) {
-    console.log(err);
+  } catch {
     res.status(404).json({ message: "There was a server side problem " });
   }
 };
