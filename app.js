@@ -29,36 +29,22 @@ const boardRouter = require("./router/boardRouter");
 const listRouter = require("./router/listRouter");
 const todoRouter = require("./router/todoRouter");
 const { ckeckLogin } = require("./middlewares/checkLogin");
+const { fileRead } = require("./common");
+
 // routes configarations
 app.use("/auth", authRouter);
 app.use("/api/boards", ckeckLogin, boardRouter);
-app.use("/api/lists", listRouter);
-app.use("/api/todos", todoRouter);
+app.use("/api/lists", ckeckLogin, listRouter);
+app.use("/api/todos", ckeckLogin, todoRouter);
 
 app.get("/", (req, res) => {
-  res.send(` 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="trellor web backend application" />
-    <title>routing url</title>
-  </head>
-  <body>
-    <ul>
-      <li><a href="/auth/register">Register</a></li>
-      <li><a href="/auth/login">Login</a></li>
-      <li><a href="/auth/logout">Logout</a></li>
-      <li><a href="/api/boards">CURD oparation under the boards</a></li>
-      <li><a href="/api/lists">CURD oparation under the lists</a></li>
-      <li><a href="/api/todos">CURD oparation under the todos</a></li>
-    </ul>
-  </body>
-</html>
-  `);
+  fileRead("index.html", (err, data) => {
+    if (!err) {
+      res.send(data);
+    } else {
+      res.send("there was a server saide problem");
+    }
+  });
 });
 
 app.listen(port, () => {

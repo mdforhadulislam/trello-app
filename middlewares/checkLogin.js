@@ -2,9 +2,12 @@ const jwt = require("jsonwebtoken");
 
 const ckeckLogin = (req, res, next) => {
   try {
+    
     const { headers } = req;
     const token = headers.authorization;
-    const { username, email } = jwt.verify(token, process.env.JWT_SECRET);
+    const jwtSecret = process.env.JWT_SECRET;
+
+    const { username, email } = jwt.verify(token, jwtSecret);
     if (
       username === req.session.user.username &&
       email === req.session.user.email

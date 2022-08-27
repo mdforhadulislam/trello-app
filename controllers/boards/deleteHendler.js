@@ -6,23 +6,28 @@ const deleteBoardHendler = async (req, res) => {
   try {
     const { _id } = req.params;
     const board = await Board.findById(_id);
-    const list = board.list;
 
     if (board.user.email === req.session.user.email) {
-      list.filter(async (item) => {
-        await List.findByIdAndDelete(item);
-      });
-
-      const deletedBoard = await Board.findByIdAndDelete(_id);
-
-      if (deletedBoard) {
-        return res.status(200).json({
-          message: "board Deleted and under all list",
-          board: deletedBoard,
+      board.list.filter((item) => {
+        List.findByIdAndDelete(item).then((res) => {
+          if (res) {
+            res.todos.filter((todo) => {
+              Todo.findByIdAndDelete(todo._id).then((res) => {
+                if (res) {
+                  Board.findByIdAndDelete(_id).then((res) => {
+                    return res.status(200).json({
+                      message:
+                        "board Deleted and under all list and all listed todos",
+                      board: deletedBoard,
+                    });
+                  });
+                  return res.status(404).json({ message: "No board found" });
+                }
+              });
+            });
+          }
         });
-      } else {
-        return res.status(404).json({ message: "No board found" });
-      }
+      });
     } else {
       res
         .status(404)
@@ -30,7 +35,7 @@ const deleteBoardHendler = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
-    res.status(404).json({ message: "There was a server side problem " });
+    res.status(404).json({ message: "There was a server side problem" });
   }
 };
 

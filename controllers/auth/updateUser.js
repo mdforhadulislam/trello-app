@@ -1,9 +1,12 @@
 const { convartHash } = require("../../common");
 const User = require("../../models/User");
 
-const registerHendler = async (req, res) => {
+const updateUserHendler = async (req, res) => {
   try {
+    const { _id } = req.params;
     const { name, username, email, phone, password } = req.body;
+
+    const user = await User.findById(_id);
     const emailToFindUser = await User.findOne({ email });
     const userNameToFindUser = await User.findOne({ username });
 
@@ -21,15 +24,14 @@ const registerHendler = async (req, res) => {
       });
     }
 
-    if (name && username && email && password) {
-      const user = new User({
-        name: name,
-        username: username,
-        email: email,
-        phone: phone,
-        password: convartHash(password),
-      });
-      const newUser = await user.save();
+    if (name || username || email || password) {
+      user.name = name ? name : user.name;
+      user.username = username ? username : user.username;
+      user.email = email ? email : user.email;
+      user.phone = phone ? phone : user.phone;
+      user.password = convartHash(password ? password : user.password);
+
+      user.save();
 
       res.status(200).json(newUser);
     } else {
@@ -41,4 +43,4 @@ const registerHendler = async (req, res) => {
   }
 };
 
-module.exports = registerHendler;
+module.exports = updateUserHendler;
