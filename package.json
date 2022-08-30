@@ -2,10 +2,10 @@
   "name": "trellor-backend-applications",
   "version": "1.0.0",
   "description": "this is trellor backend api application ",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon server.js"
   },
   "keywords": [
     "trellor",
@@ -30,7 +30,9 @@
     "express-session": "^1.17.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.3",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.19",
+    "shortid": "^2.2.16",
     "uuid": "^8.3.2"
   }
 }
