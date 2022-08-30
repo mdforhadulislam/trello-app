@@ -3,6 +3,11 @@ const express = require("express");
 const app = express();
 
 require("./middlewares");
-app.use("/", require("./routes"));
+
+app.get("/health", (_req, res) => {
+  res.status(200).json({ message: "Success" });
+});
+
+app.use("/api/v1", require("./routes"));
 
 module.exports = app;

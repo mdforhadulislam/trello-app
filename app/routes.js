@@ -1,9 +1,6 @@
 const router = require("express").Router();
+const userRoutes = require("../routes/userRouter");
 
-router.get("/health", (_req, res) => {
-  res.send({ message: "Success" });
-});
-
-
+router.use("/auth", userRoutes);
 
 module.exports = router;
