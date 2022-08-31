@@ -6,82 +6,62 @@ const putBoardHendler = (req, res) => {
     const { id } = req.params;
 
     // get board updatet data
-    const { name, color } = req.body;
+    let { name, color } = req.body;
 
-    // get database to recive all board data
-    curd.read(
-      "boards",
-      /**
-       *
-       * @param {boolean} err
-       * @param {Array} data
-       */
-      (err, data) => {
-        if (err) {
-          // convart data json to array
-          const datas = JSON.parse(data);
+    name = name.length > 0 ? name : false;
+    color = color.length > 0 ? color : false;
 
-          // filter to data and update main object
-          const findBoard = datas.find(
-            /**
-             *
-             * @param {object} board
-             * @returns {object}object
-             */
-            (board) => board.id === id
-          );
+    if (name || color) {
+      // get database to recive all board data
+      curd.read(
+        "boards",
+        /**
+         *
+         * @param {boolean} err
+         * @param {Array} data
+         */
+        (err, data) => {
+          if (err) {
+            // convart data json to array
+            const datas = JSON.parse(data);
 
-          if (findBoard) {
-            const newBoard = {
-              ...findBoard,
-              name,
-              color,
-            };
-
-            // delete to database old data
-            curd.delete(
-              "boards",
-              newBoard.id,
+            // filter to data and update main object
+            const findBoard = datas.find(
               /**
                *
-               * @param {boolean} err
-               * @param {Array} data
+               * @param {object} board
+               * @returns {object}object
                */
-              (err, data) => {
-                // if err true
-                if (err) {
-                  // create new data object in database
-                  curd.create(
-                    "boards",
-                    newBoard,
-                    /**
-                     *
-                     * @param {boolean} err
-                     * @param {Array} data
-                     */
-                    (err, data) => {
-                      if (err) {
-                        res.status(200).json(newBoard);
-                      } else {
-                        res
-                          .status(500)
-                          .json({ message: "Internal Server Error" });
-                      }
-                    }
-                  );
-                } else {
-                  res.status(500).json({ message: "Internal Server Error" });
-                }
-              }
+              (board) => board.id === id
             );
+
+            if (findBoard) {
+              const newBoard = {
+                ...findBoard,
+                name,
+                color,
+                updateAt: new Date(),
+              };
+
+              // delete to database old data
+              curd.update("boards", findBoard.id, newBoard, (err, data) => {
+                if (err) {
+                  res.status(500).json(data);
+                } else {
+                  res.status(500).json({ message: "board not updated" });
+                }
+              });
+            } else {
+              res.status(404).json({ message: "board not found" });
+            }
           } else {
-            res.status(404).json({ message: "board not found" });
+            res.status(500).json({ message: "Internal Server Error" });
           }
-        } else {
-          res.status(500).json({ message: "Internal Server Error" });
         }
-      }
-    );
+      );
+    } else {
+      res.status(500).json({ message: "send a valid data" });
+    }
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error" });
   }

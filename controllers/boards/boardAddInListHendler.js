@@ -1,3 +1,6 @@
-const boardAddInListHendler = (req, res) => {};
+const boardAddInListHendler = (req, res) => {
+  try {
+  } catch (error) {}
+};
 
 module.exports = boardAddInListHendler;
