@@ -18,6 +18,9 @@ const patchAccountHendler = require("../controllers/users/accountsHendler/patchA
 const putAccountHendler = require("../controllers/users/accountsHendler/putAccountHendler");
 const deleteAccountHendler = require("../controllers/users/accountsHendler/deleteAccountHendler");
 
+const authentication = require("../middlewares/authentication");
+const postLogoutHendler = require("../controllers/users/logoutHendler/postLogoutHendler");
+
 // this is login api routes
 router
   .route("/login")
@@ -26,6 +29,9 @@ router
   .patch(patchLoginHendler)
   .put(putLoginHendler)
   .delete(deleteLoginHendler);
+
+  //this is logout api routes
+router.route("/logout").post(authentication, postLogoutHendler);
 
 //   this is registation api routes
 router.post("/register", postRegisterHendler);
@@ -40,9 +46,9 @@ router
 router.post("/accounts", postAccountHendler);
 router
   .route("/accounts/:username")
-  .get(getAccountHendler)
-  .patch(patchAccountHendler)
-  .put(putAccountHendler)
-  .delete(deleteAccountHendler);
+  .get(authentication, getAccountHendler)
+  .patch(authentication, patchAccountHendler)
+  .put(authentication, putAccountHendler)
+  .delete(authentication, deleteAccountHendler);
 
 module.exports = router;

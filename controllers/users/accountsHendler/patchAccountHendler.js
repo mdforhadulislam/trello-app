@@ -107,7 +107,7 @@ const patchAccountHendler = (req, res) => {
                     }
                   );
                 } else {
-                  res.status(500).json({ message: "user not found" });
+                  res.status(404).json({ message: "user not found" });
                 }
               }
             );
@@ -123,4 +123,4 @@ const patchAccountHendler = (req, res) => {
   }
 };
 
-module.exports =  patchAccountHendler;
+module.exports = patchAccountHendler;

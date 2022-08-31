@@ -1,4 +1,4 @@
-const getRegisterHendler = (_req, res) => {
+const getRegisterHendler = (req, res) => {
   try {
     res.status(200).json({ message: "hit post method" });
   } catch (error) {
