@@ -10,7 +10,10 @@ router.get("/", (req, res) => {
     login: "/api/v1/auth/login",
     logout: "/api/v1/auth/logout",
     register: "/api/v1/auth/register",
-    accounts: "api/v1/auth/accounts",
+    accounts: "/api/v1/auth/accounts",
+    board: "/api/v1/board",
+    list: "/api/v1/list",
+    task: "/api/v1/task",
   });
 });
 
