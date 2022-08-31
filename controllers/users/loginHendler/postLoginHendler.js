@@ -1,5 +1,4 @@
 const curd = require("../../../lib/curdOparations");
-const parsrJSON = require("../../../util/parsrJSON");
 const commpear = require("../../../util/commpear");
 const jwt = require("jsonwebtoken");
 const jwtSecret = process.env.JWT_SECRET;
@@ -21,7 +20,7 @@ const postLoginHendler = (req, res, _next) => {
         (err, data) => {
           if (err) {
             // databse json data convating Array
-            const datas = parsrJSON(data);
+            const datas = JSON.parse(data);
 
             // finding the user in Array
             const findUser = datas.find((user) => user.email === email);

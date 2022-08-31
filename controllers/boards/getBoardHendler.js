@@ -1,12 +1,11 @@
 const curd = require("../../lib/curdOparations");
-const parsrJSON = require("../../util/parsrJSON");
 
 const getBoardHendler = (req, res) => {
   try {
     const user = req.session.user;
     curd.read("boards", (err, data) => {
       if (err) {
-        const datas = parsrJSON(data);
+        const datas = JSON.parse(data);
         const finduserBoards = datas.filter((board) => board.user === user);
         if (finduserBoards) {
           res.status(200).json(finduserBoards);

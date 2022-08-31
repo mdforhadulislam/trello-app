@@ -1,5 +1,4 @@
 const curd = require("../../../lib/curdOparations");
-const parsrJSON = require("../../../util/parsrJSON");
 
 const getAccountHendler = (req, res) => {
   try {
@@ -14,7 +13,7 @@ const getAccountHendler = (req, res) => {
        */
       (err, data) => {
         // covart database data boject
-        const datas = parsrJSON(data);
+        const datas = JSON.parse(data);
         //   checking the user find to database
         const findData = datas.find(
           /**

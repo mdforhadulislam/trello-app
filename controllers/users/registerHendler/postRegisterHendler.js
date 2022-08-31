@@ -1,6 +1,5 @@
 const curd = require("../../../lib/curdOparations");
 const User = require("../../../models/User");
-const parsrJSON = require("../../../util/parsrJSON");
 const convartHash = require("../../../util/convartHash");
 
 const postRegisterHendler = (req, res) => {
@@ -26,7 +25,7 @@ const postRegisterHendler = (req, res) => {
         (err, data) => {
           if (err) {
             // convar object database data
-            let datas = parsrJSON(data);
+            let datas = JSON.parse(data);
 
             // checking username maching to other user
             const checkUserUsername = datas.find(

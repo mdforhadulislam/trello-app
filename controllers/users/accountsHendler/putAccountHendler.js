@@ -1,6 +1,4 @@
 const curd = require("../../../lib/curdOparations");
-const convartJSON = require("../../../util/convartJSON");
-const parsrJSON = require("../../../util/parsrJSON");
 
 const putAccountHendler = (req, res) => {
   try {
@@ -27,7 +25,7 @@ const putAccountHendler = (req, res) => {
          * @returns
          */
         (err, data) => {
-          const datas = parsrJSON(data);
+          const datas = JSON.parse(data);
 
           // checking username maching to other user
           const checkUserUsername = datas.find(
