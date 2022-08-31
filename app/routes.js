@@ -4,6 +4,11 @@ const boardRoutes = require("../routes/boardRouter");
 const listRoutes = require("../routes/listRouter");
 const taskRoutes = require("../routes/taskRouter");
 
+router.use("/auth", userRoutes);
+router.use("/board", boardRoutes);
+router.use("/list", listRoutes);
+router.use("/task", taskRoutes);
+
 router.get("/", (req, res) => {
   res.status(200).json({
     health: "/health",
@@ -16,10 +21,5 @@ router.get("/", (req, res) => {
     task: "/api/v1/task",
   });
 });
-
-router.use("/auth", userRoutes);
-router.use("/board", boardRoutes);
-router.use("/list", listRoutes);
-router.use("/task", taskRoutes);
 
 module.exports = router;
