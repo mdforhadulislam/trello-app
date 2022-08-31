@@ -26,30 +26,34 @@ const deleteBoardHendler = (req, res) => {
              */
             (board) => board.id === id
           );
-          //  if find board in database
-          if (findBoard) {
-            // then delete this board
-            curd.delete(
-              "boards",
-              findBoard.id,
-              /**
-               *
-               * @param {boolean} err
-               * @param {Array} data
-               */
-              (err, data) => {
-                if (err) {
-                  res.status(500).json({
-                    message: "successfully was deleted by board",
-                    board: findBoard,
-                  });
-                } else {
-                  res.status(500).json({ message: "Boards not deleted" });
+          if (findBoard.user === req.session.user) {
+            //  if find board in database
+            if (findBoard) {
+              // then delete this board
+              curd.delete(
+                "boards",
+                findBoard.id,
+                /**
+                 *
+                 * @param {boolean} err
+                 * @param {Array} data
+                 */
+                (err, data) => {
+                  if (err) {
+                    res.status(500).json({
+                      message: "successfully was deleted by board",
+                      board: findBoard,
+                    });
+                  } else {
+                    res.status(500).json({ message: "Boards not deleted" });
+                  }
                 }
-              }
-            );
+              );
+            } else {
+              res.status(500).json({ message: "Internal Server Error" });
+            }
           } else {
-            res.status(500).json({ message: "Internal Server Error" });
+            res.status(500).json({ message: "you are not allow" });
           }
         } else {
           res.status(500).json({ message: "Internal Server Error" });

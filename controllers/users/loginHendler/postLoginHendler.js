@@ -2,7 +2,7 @@ const curd = require("../../../lib/curdOparations");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const jwtSecret = process.env.JWT_SECRET;
-const postLoginHendler = (req, res, _next) => {
+const postLoginHendler = (req, res) => {
   try {
     // check posted data
     const email = req.body.email.length > 0 ? req.body.email.trim() : false;
@@ -17,7 +17,7 @@ const postLoginHendler = (req, res, _next) => {
          * @param {boolean} err
          * @param {Array} data
          */
-        (err, data) => {
+        async (err, data) => {
           if (err) {
             // databse json data convating Array
             const datas = JSON.parse(data);
@@ -31,11 +31,16 @@ const postLoginHendler = (req, res, _next) => {
               if (findUser.email === email) {
                 // user password is checking
                 if (bcrypt.compareSync(password, findUser.password)) {
-                  // finally save the user in session
-                  req.session.user = findUser.username;
+                  // finally definde token data 
+                  const userdata = {
+                    name : findUser.name,
+                    username:findUser.username,
+                    email:findUser.email,
+                  }
 
                   // generate by token for users
-                  const token = jwt.sign(findUser.username, jwtSecret);
+                  const token = await jwt.sign(userdata, jwtSecret,{expiresIn:"60d"});
+
                   res
                     .status(200)
                     .json({ message: "login successfull", token: token });

@@ -10,7 +10,6 @@ const authentication = (req, res, next) => {
     ) {
       const userToken = req.headers.authorization.split(" ")[1];
       const user = jwt.verify(userToken, jwtSecret).trim();
-      console.log(req.session.user);
       if ((req.session.user === user)) {
         next();
       } else {
