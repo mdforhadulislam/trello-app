@@ -3,9 +3,10 @@ const userRoutes = require("../routes/userRouter");
 const boardRoutes = require("../routes/boardRouter");
 const listRoutes = require("../routes/listRouter");
 const taskRoutes = require("../routes/taskRouter");
+const authentication = require("../middlewares/authentication");
 
 router.use("/auth", userRoutes);
-router.use("/board", boardRoutes);
+router.use("/board", authentication, boardRoutes);
 router.use("/list", listRoutes);
 router.use("/task", taskRoutes);
 
