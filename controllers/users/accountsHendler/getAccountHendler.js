@@ -1,5 +1,5 @@
 const curd = require("../../../lib/curdOparations");
-const parsrJSON = require("../../../utilities/parsrJSON");
+const parsrJSON = require("../../../util/parsrJSON");
 
 const getAccountHendler = (req, res) => {
   try {

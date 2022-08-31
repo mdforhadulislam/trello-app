@@ -1,7 +1,7 @@
 const curd = require("../../../lib/curdOparations");
 const User = require("../../../models/User");
-const parsrJSON = require("../../../utilities/parsrJSON");
-const convartHash = require("../../../utilities/convartHash");
+const parsrJSON = require("../../../util/parsrJSON");
+const convartHash = require("../../../util/convartHash");
 
 const postRegisterHendler = (req, res) => {
   try {

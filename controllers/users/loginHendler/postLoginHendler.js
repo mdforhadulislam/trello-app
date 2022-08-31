@@ -1,6 +1,6 @@
 const curd = require("../../../lib/curdOparations");
-const parsrJSON = require("../../../utilities/parsrJSON");
-const commpear = require("../../../utilities/commpear");
+const parsrJSON = require("../../../util/parsrJSON");
+const commpear = require("../../../util/commpear");
 const jwt = require("jsonwebtoken");
 const jwtSecret = process.env.JWT_SECRET;
 const postLoginHendler = (req, res, _next) => {

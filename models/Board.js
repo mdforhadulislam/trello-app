@@ -1,6 +1,13 @@
 const shortID = require("shortid");
 
 class Board {
+  /**
+   *
+   * @param {string} user
+   * @param {string} name
+   * @param {string} color
+   * @param {Array<string>} list
+   */
   constructor(user, name, color, list) {
     this.id = shortID.generate();
     this.name = name;

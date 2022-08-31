@@ -7,6 +7,7 @@ const session = require("express-session");
 
 const secret = process.env.SECRET;
 
+// middlewares conections
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
@@ -20,6 +21,7 @@ app.use(
   })
 );
 
+// single routes
 app.get("/health", (_req, res) => {
   res.status(200).json({ message: "Success" });
 });
@@ -28,6 +30,7 @@ app.get("/", (_req, res) => {
   res.status(200).send("at first login");
 });
 
+// version 1 api url
 app.use("/api/v1", require("./routes"));
 
 module.exports = app;
