@@ -1,5 +1,5 @@
 const curd = require("../../../lib/curdOparations");
-const commpear = require("../../../util/commpear");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const jwtSecret = process.env.JWT_SECRET;
 const postLoginHendler = (req, res, _next) => {
@@ -30,7 +30,7 @@ const postLoginHendler = (req, res, _next) => {
               // user email checking
               if (findUser.email === email) {
                 // user password is checking
-                if (commpear(password, findUser.password)) {
+                if (bcrypt.compareSync(password, findUser.password)) {
                   // finally save the user in session
                   req.session.user = findUser.username;
 

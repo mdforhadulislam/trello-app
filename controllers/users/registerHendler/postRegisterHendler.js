@@ -1,6 +1,6 @@
 const curd = require("../../../lib/curdOparations");
 const User = require("../../../models/User");
-const convartHash = require("../../../util/convartHash");
+const bcrypt = require("bcrypt");
 
 const postRegisterHendler = (req, res) => {
   try {
@@ -11,7 +11,8 @@ const postRegisterHendler = (req, res) => {
     name = name.length > 0 ? name.trim() : false;
     username = username.length > 0 ? username.trim() : false;
     email = email.length > 10 ? email.trim() : false;
-    password = password.length > 0 ? convartHash(password.trim()) : false;
+    password =
+      password.length > 0 ? bcrypt.hashSync(password.trim(), 3) : false;
 
     //  checking data
     if (name && username && email && password) {
