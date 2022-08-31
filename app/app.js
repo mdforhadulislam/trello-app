@@ -20,11 +20,11 @@ app.use(
   })
 );
 
-// app.get("/health", (_req, res) => {
-//   res.status(200).json({ message: "Success" });
-// });
+app.get("/health", (_req, res) => {
+  res.status(200).json({ message: "Success" });
+});
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.status(200).send("at first login");
 });
 
