@@ -9,7 +9,7 @@ router.use("/board", boardRoutes);
 router.use("/list", listRoutes);
 router.use("/task", taskRoutes);
 
-router.get("/", (req, res) => {
+router.get("/", (_req, res) => {
   res.status(200).json({
     health: "/health",
     login: "/api/v1/auth/login",
