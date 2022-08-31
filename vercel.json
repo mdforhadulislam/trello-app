@@ -12,7 +12,7 @@
     }
   ],
   "functions": {
-    "app/app.js": {
+    "./server.js": {
       "memory": 3008,
       "maxDuration": 30
     },
