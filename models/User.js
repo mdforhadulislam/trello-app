@@ -1,5 +1,7 @@
+const shortId = require("shortid")
 class User {
    constructor(name, username, email, password, profileImage) {
+      this.id = shortId.generate()
       this.name = name;
       this.username = username;
       this.email = email;
@@ -11,4 +13,4 @@ class User {
 }
 
 
-module.exports = new User()
+module.exports = User

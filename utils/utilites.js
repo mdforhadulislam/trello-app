@@ -1,8 +1,12 @@
+const path = require("path");
+const shortId = require("shortid");
 const bcrypt = require("bcrypt");
 const curd = require("../lib/curdOparations");
 
 class Utilites {
-   constructor() {}
+   constructor() {
+      this.uploadedPath = `${__dirname}/../media/`;
+   }
 
    /**
     * @param {Array<object>} array
@@ -163,28 +167,32 @@ class Utilites {
    jsonParse(data) {
       return JSON.parse(data);
    }
+
+   /**
+    * 
+    * @param {string} username 
+    * @param {object} file 
+    * @param {Function} callback 
+    */
+   fileUploader(username, file, callback) {
+      const fileExt = path.extname(file.name);
+      if (fileExt === ".jpg" || fileExt === ".png" || fileExt === ".gift") {
+         const fileName = `${username}-${shortId.generate()}${fileExt}`;
+         const filePath = `${this.uploadedPath}${fileName}`;
+         const profileApiPath = `/api/v1/media/${fileName}`;
+         file.mv(filePath, (err) => {
+            if (!err) {
+               callback(true, profileApiPath, "success");
+            } else {
+               callback(false, null, "Internal Server Error");
+            }
+         });
+      } else {
+         callback(false, null, "any one uploaded type .jpg, .png and .gift");
+      }
+   }
 }
 
-const {
-   filter,
-   find,
-   convartHash,
-   compeaData,
-   tokenGenaretor,
-   tokenDestroy,
-   tokenVerify,
-   jsonStringify,
-   jsonParse,
-} = new Utilites();
+const utilites = new Utilites();
 
-module.exports = {
-   filter,
-   find,
-   convartHash,
-   compeaData,
-   tokenGenaretor,
-   tokenDestroy,
-   tokenVerify,
-   jsonStringify,
-   jsonParse,
-};
+module.exports = utilites;

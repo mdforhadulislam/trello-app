@@ -1,5 +1,7 @@
+const shortId = require("shortid")
 class List {
    constructor(name, board_id, user) {
+      this.id = shortId.generate()
       this.name = name
       this.user = user
       this.board_id = board_id

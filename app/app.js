@@ -4,6 +4,7 @@ const routers = require("./router");
 const middlewares = require("./middlewares");
 
 app.use(middlewares);
+
 app.use("/", routers);
 
 module.exports = app;
