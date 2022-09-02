@@ -51,7 +51,7 @@ const singleGetBoardHendler = (req, res) => {
                         res.status(200).json(findBoard)
                      } else {
 
-                        res.status(400).json({ message: "you are not allow" });
+                        res.status(406).json({ message: "you are not allow" });
                      }
 
                   } else {

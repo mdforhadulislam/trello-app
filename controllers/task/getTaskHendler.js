@@ -2,46 +2,53 @@ const curd = require("../../lib/curdOparations");
 const { tokenToGetUser } = require("../../utils/tokensMethord");
 const utilites = require("../../utils/utilites");
 
-const deleteListHenlder = (req, res) => {
+const getTaskHendler = (req, res) => {
    try {
-      const { id } = req.params;
+      const { li } = req.query;
 
-      curd.read("list", (err, datas) => {
+      curd.read("list", (err, listData) => {
          if (err) {
-            const findList = utilites.find(datas, "id", id);
+            const findList = utilites.find(listData, "id", li);
             if (findList) {
                curd.read("board", (err, datas) => {
                   if (err) {
-                     const findBoard = utilites.find(datas, "id", findList.board_id);
+                     const findBoard = datas.find(
+                        (board) => board.id === findList.board_id
+                     );
                      if (findBoard) {
                         tokenToGetUser(req, (err, user) => {
                            if (err) {
                               if (user.id === findBoard.user.id) {
-                                 curd.delete("list", findList.id, (err, data) => {
+                                 curd.read("task", (err, taskData) => {
                                     if (err) {
-                                       res.status(200).json(findList);
+                                       const filterTask = taskData.filter(
+                                          (task) => task.list_id === li
+                                       );
+                                       if (filterTask) {
+                                          res.status(200).json(filterTask);
+                                       } else {
+                                          res.status(404).json({ message: "task not found" });
+                                       }
                                     } else {
-                                       res
-                                          .status(404)
-                                          .json({ message: "list is not delete" });
+                                       res.status(404).json({ message: "task not found" });
                                     }
                                  });
                               } else {
                                  res.status(406).json({ message: "you are not allow" });
                               }
                            } else {
-                              res.status(500).json({ message: "Internal Server Error" });
+                              res.status(406).json({ message: "you are not allow" });
                            }
                         });
                      } else {
-                        res.status(404).json({ message: "board not found" });
+                        res.status(404).json({ message: "Board not found" });
                      }
                   } else {
                      res.status(500).json({ message: "Internal Server Error" });
                   }
                });
             } else {
-               res.status(404).json({ message: "list not found" });
+               res.status(404).json({ message: "List not found" });
             }
          } else {
             res.status(500).json({ message: "Internal Server Error" });
@@ -52,4 +59,5 @@ const deleteListHenlder = (req, res) => {
    }
 };
 
-module.exports = deleteListHenlder;
+
+module.exports = getTaskHendler;

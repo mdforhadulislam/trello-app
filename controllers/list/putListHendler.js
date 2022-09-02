@@ -34,7 +34,7 @@ const putListHendler = (req, res) => {
                                        newList,
                                        (err, data) => {
                                           if (err) {
-                                             res.status(500).json(newList);
+                                             res.status(200).json(newList);
                                           } else {
                                              res
                                                 .status(500)
@@ -43,7 +43,7 @@ const putListHendler = (req, res) => {
                                        }
                                     );
                                  } else {
-                                    res.status(500).json({ message: "you are not allow" });
+                                    res.status(406).json({ message: "you are not allow" });
                                  }
                               } else {
                                  res
@@ -66,7 +66,7 @@ const putListHendler = (req, res) => {
             }
          });
       } else {
-         res.status(500).json({ message: "send valid data" });
+         res.status(400).json({ message: "send valid data" });
       }
    } catch (error) {
       res.status(500).json({ message: "Internal Server Error" });

@@ -15,7 +15,7 @@ const userLogoutHendler = (req, res) => {
                   }
                });
             } else {
-               res.status(400).json({ message: "you are not allow" });
+               res.status(406).json({ message: "you are not allow" });
             }
          });
       } else {

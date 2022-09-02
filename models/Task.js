@@ -1,10 +1,10 @@
 const shortId = require("shortid")
 class Task {
-   constructor(task, done, user) {
+   constructor(task, done, list_id) {
       this.id = shortId.generate()
       this.task = task
       this.done = done
-      this.user = user
+      this.list_id = list_id
       this.createAt = new Date()
       this.updateAt = new Date()
    }
@@ -13,4 +13,4 @@ class Task {
 
 
 
-module.exports =  Task
+module.exports = Task
