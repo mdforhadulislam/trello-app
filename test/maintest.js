@@ -10,6 +10,10 @@ const hash = compeaData("hello", "$2b$05$oUUMDeHReDIo3JzbfckHre53.u2HVXTQYbPpj4Q
 //    }
 // });
 
-utilites.tokenGenaretor("u3oe_1nymg", (err, data) => {
-   console.log(err, data);
-})
+// utilites.tokenGenaretor("u3oe_1nymg", (err, data) => {
+//    console.log(err, data);
+// })
+
+// curd.delete("board","uqk5qASyf",(err,data)=>{
+//    console.log(err,data);
+// })

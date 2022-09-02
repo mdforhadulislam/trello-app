@@ -13,4 +13,4 @@ class Task {
 
 
 
-module.exports = new Task()
+module.exports =  Task

@@ -2,7 +2,7 @@ const curd = require("../../lib/curdOparations");
 const { tokenGenaretor } = require("../../utils/tokensMethord");
 const utilites = require("../../utils/utilites");
 
-function userLoginHendler(req, res) {
+const userLoginHendler = (req, res) => {
    try {
       let { email, password } = req.body;
 
@@ -18,12 +18,11 @@ function userLoginHendler(req, res) {
                   curd.read("token", (err, data) => {
                      if (err) {
                         const findId = data.filter((token) => token.id === findUser.id);
-                        console.log(findId.length === 0);
                         if (findId.length <= 2) {
                            tokenGenaretor(findUser.id, (err, data) => {
                               if (err) {
                                  res
-                                    .status(500)
+                                    .status(200)
                                     .json({ message: "login successfull", token: data });
                               } else {
                                  res
@@ -39,7 +38,7 @@ function userLoginHendler(req, res) {
                      }
                   });
                } else {
-                  res.status(203).json({ message: "you are not allow" });
+                  res.status(400).json({ message: "you are not allow" });
                }
             } else {
                res.status(404).json({ message: "not found" });

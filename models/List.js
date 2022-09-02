@@ -5,6 +5,7 @@ class List {
       this.name = name
       this.user = user
       this.board_id = board_id
+      this.todos = []
       this.createAt = new Date()
       this.updateAt = new Date()
    }
@@ -12,4 +13,4 @@ class List {
 
 
 
-module.exports = new List()
+module.exports = List

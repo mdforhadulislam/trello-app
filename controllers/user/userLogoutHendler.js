@@ -1,7 +1,7 @@
 const curd = require("../../lib/curdOparations");
 const { tokenDestroy, tokenFind } = require("../../utils/tokensMethord");
 
-function userLogoutHendler(req, res) {
+const userLogoutHendler = (req, res) => {
    try {
       const { headers } = req;
 
@@ -11,18 +11,17 @@ function userLogoutHendler(req, res) {
             if (data) {
                tokenDestroy(data.id, (data) => {
                   if (data) {
-                     res.status(203).json({ message: "success" });
+                     res.status(200).json({ message: "success" });
                   }
                });
             } else {
-               res.status(500).json({ message: "you are not allow" });
+               res.status(400).json({ message: "you are not allow" });
             }
          });
       } else {
-         res.status(500).json({ message: "send token" });
+         res.status(400).json({ message: "send token" });
       }
    } catch (error) {
-      console.log(error);
       res.status(500).json({ message: "Internal Server Error" });
    }
 }

@@ -16,7 +16,7 @@ const userRagisterHendler = (req, res) => {
       profile = profile ? profile : false;
 
       // if all value is true then go to next step
-      if ((name && username && email && password) || profile) {
+      if ((name && username && email && password) && profile) {
 
          // database to get all user 
          curd.read("user",
@@ -49,10 +49,10 @@ const userRagisterHendler = (req, res) => {
                   // this user profile uploaded data
                   utilites.fileUploader(username, profile,
                      /**
-                      * 
-                      * @param {boolean} err 
-                      * @param {string} apiUrl 
-                      * @param {string} message 
+                      *
+                      * @param {boolean} err
+                      * @param {string} apiUrl
+                      * @param {string} message
                       * @returns {object}object
                       */
                      (err, apiUrl, message) => {
@@ -68,14 +68,14 @@ const userRagisterHendler = (req, res) => {
                               // finally add to data in database 
                               curd.create("user", newUser,
                                  /**
-                                  * 
-                                  * @param {boolean} err 
-                                  * @param {object} data 
+                                  *
+                                  * @param {boolean} err
+                                  * @param {object} data
                                   * @returns {object} object
                                   */
                                  (err, data) => {
                                     if (err) {
-                                       return res.status(500).json(data);
+                                       return res.status(200).json(data);
                                     } else {
                                        return res
                                           .status(500)
@@ -88,7 +88,7 @@ const userRagisterHendler = (req, res) => {
                                  .json({ message: "Internal Server Error" });
                            }
                         } else {
-                           res.status(400).json({ message: message });
+                           res.status(200).json({ message: message });
                         }
                      });
                } else {

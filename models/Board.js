@@ -5,9 +5,10 @@ class Board {
       this.name = name
       this.collor = collor
       this.user = user
+      this.lists = []
       this.createAt = new Date()
       this.updateAt = new Date()
    }
 }
 
-module.exports = new Board()
+module.exports = Board

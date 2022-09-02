@@ -2,8 +2,6 @@ const curd = require("../lib/curdOparations");
 const utilites = require("./utilites");
 
 
-
-
 /**
  *
  * @param {string} id
@@ -44,8 +42,6 @@ function tokenGenaretor(id, callback) {
 }
 
 
-
-
 /**
  *
  * @param {string} id
@@ -61,8 +57,6 @@ function tokenFind(reqToken, callback) {
       }
    });
 }
-
-
 
 /**
  *
@@ -98,5 +92,48 @@ function tokenDestroy(id, callback) {
 }
 
 
+/**
+ * 
+ * @param {object} req 
+ * @param {Function} callback 
+ */
+function tokenToGetUser(req, callback) {
 
-module.exports = { tokenGenaretor, tokenFind, tokenVerify, tokenDestroy }
+   const { headers } = req
+
+   if (headers.authorization && headers.authorization.split(" ")[0] === "Bearer") {
+      const token = headers.authorization.split(" ")[1]
+      tokenFind(token, (token) => {
+         if (token) {
+            curd.read("token", (err, data) => {
+               if (err) {
+                  const findUserId = utilites.find(data, "token", token.token)
+                  curd.read("user", (err, data) => {
+                     if (err) {
+                        const findUser = utilites.find(data, "id", findUserId.id)
+                        if (findUser) {
+                           callback(true, findUser)
+                        } else {
+                           callback(false, null)
+                        }
+                     } else {
+                        callback(false, null)
+                     }
+                  })
+               } else {
+                  callback(false, null)
+               }
+            })
+         } else {
+            callback(false, null)
+         }
+      })
+   } else {
+      callback(false, null)
+   }
+
+
+}
+
+
+module.exports = { tokenGenaretor, tokenFind, tokenVerify, tokenDestroy, tokenToGetUser }
