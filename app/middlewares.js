@@ -2,7 +2,6 @@ const express = require("express");
 const cros = require("cors");
 const morgan = require("morgan");
 const fileUpload = require("express-fileupload");
-// const app = express();
 
 const middleweares = [
    cros(),

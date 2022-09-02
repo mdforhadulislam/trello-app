@@ -1,7 +1,7 @@
-const path = require("path");
 const shortId = require("shortid");
 const bcrypt = require("bcrypt");
-const curd = require("../lib/curdOparations");
+const path = require("path");
+const curd = require("../lib/curdOparations")
 
 class Utilites {
    constructor() {
@@ -89,65 +89,6 @@ class Utilites {
    compeaData(string, hashString) {
       const value = bcrypt.compareSync(string, hashString);
       return value;
-   }
-
-   /**
-    *
-    * @param {string} id
-    * @returns {string}string
-    */
-   tokenGenaretor(id) {
-      let length = 15;
-      if (length) {
-         const possiblecharacters = "abcdefghijklmnopqrstuvwxyz1234567890";
-         let output = "";
-         for (let i = 1; i <= length; i += 1) {
-            const randomCharacter = possiblecharacters.charAt(
-               Math.floor(Math.random() * possiblecharacters.length)
-            );
-            output += randomCharacter;
-         }
-         curd.create("tokens", { id: id, token: output }, (err, data) => {
-            if (err) {
-               return output;
-            }
-         });
-         return output;
-      }
-      return false;
-   }
-
-   /**
-    *
-    * @param {string} id
-    * @param {Function} callback
-    */
-   tokenVerify(id, callback) {
-      curd.read("token", (err, data) => {
-         if (err) {
-            const datas = this.jsonParse(data);
-            const token = datas.find((sToken) => sToken.id === id);
-            const isToken = token ? token : false;
-            callback(isToken);
-         } else {
-            callback(false);
-         }
-      });
-   }
-
-   /**
-    *
-    * @param {string} id
-    * @param {Function} callback
-    */
-   tokenDestroy(id, callback) {
-      curd.delete("token", id, (err, data) => {
-         if (err) {
-            callback(data);
-         } else {
-            callback(false);
-         }
-      });
    }
 
    /**

@@ -9,10 +9,10 @@ const userRagisterHendler = (req, res) => {
       let { files: { profile }, } = req;
 
       // checked all value 
-      name = name.length > 0 ? name : false;
-      username = username.length > 0 ? username : false;
-      email = email.length > 0 ? email : false;
-      password = password.length > 1 ? password : false;
+      name = name.length > 0 ? name.trim() : false;
+      username = username.length > 0 ? username.trim() : false;
+      email = email.length > 0 ? email.trim() : false;
+      password = password.length > 1 ? utilites.convartHash(password.trim()) : false;
       profile = profile ? profile : false;
 
       // if all value is true then go to next step
