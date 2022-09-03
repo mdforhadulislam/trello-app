@@ -7,7 +7,7 @@ const userImageUploadHendler = (req, res) => {
       files: { profile },
     } = req;
     let { username } = req?.params;
-
+    
     utilites.fileUploader(
       username,
       profile,
@@ -30,10 +30,10 @@ const userImageUploadHendler = (req, res) => {
                   profileImage: apiUrl ? apiUrl : null,
                 };
                 curd.update("user", finduser.id, updateUser, (err, data) => {
-                  res.status(500).json(data);
+                  res.status(200).json(data);
                 });
               } else {
-                res.status(500).json({ message: "user not found" });
+                res.status(404).json({ message: "user not found" });
               }
             } else {
               res.status(500).json({ message: "Internal Server Error" });
