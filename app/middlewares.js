@@ -7,8 +7,8 @@ const middleweares = [
   cros(),
   morgan("dev"),
   fileUpload(),
-  express.json({ limit: "200mb" }),
-  express.urlencoded({ limit: "200mb", extended: true }),
+  express.json({ limit: "50mb" }),
+  express.urlencoded({ limit: "250mb", extended: false }),
 ];
 
 module.exports = middleweares;
