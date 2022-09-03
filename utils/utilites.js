@@ -133,7 +133,7 @@ class Utilites {
         callback(false, null, "any one uploaded type .jpg, .png and .gift");
       }
     } else {
-      callback(false, null);
+      callback(false,null, "send file");
     }
   }
 }

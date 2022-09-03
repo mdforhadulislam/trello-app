@@ -1,9 +1,9 @@
 const shortId = require("shortid")
 class Board {
-   constructor(name, collor, user) {
+   constructor(name, color, user) {
       this.id = shortId.generate()
       this.name = name
-      this.collor = collor
+      this.color = color
       this.user = user
       this.lists = []
       this.createAt = new Date()
