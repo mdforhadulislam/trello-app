@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const tokenToGetUserDeatils = require("../controllers/account/tokenToGetUserDeatils");
 const userImageUploadHendler = require("../controllers/profile/userImageUploadHendler");
 const userLoginHendler = require("../controllers/user/userLoginHendler");
 const userLogoutHendler = require("../controllers/user/userLogoutHendler");
@@ -11,5 +12,7 @@ router.put("/register/img/upload/:username", userImageUploadHendler);
 
 router.post("/login", userLoginHendler);
 router.post("/logout", checkAuthentication, userLogoutHendler);
+
+router.get("/token", tokenToGetUserDeatils);
 
 module.exports = router;
