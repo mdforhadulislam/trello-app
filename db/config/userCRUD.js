@@ -1,4 +1,4 @@
-const curd = require("../../lib/curd");
+const crud = require("../../lib/crud");
 const User = require("../../models/User");
 
 class UserMethod {
@@ -13,7 +13,7 @@ class UserMethod {
    */
   userCreate(name, usrname, email, password) {
     const newUser = new User(name, usrname, email, password);
-    const user = curd.create("user", newUser);
+    const user = crud.create("user", newUser);
     return user;
   }
 
@@ -24,7 +24,7 @@ class UserMethod {
    * @returns {object}single User
    */
   findById(id) {
-    const user = curd.read("user");
+    const user = crud.read("user");
     const findUser = user.find((sUser) => sUser.id === id);
     return findUser;
   }
@@ -36,7 +36,7 @@ class UserMethod {
    * @returns {object}single User
    */
   findByEmail(email) {
-    const user = curd.read("user");
+    const user = crud.read("user");
     const findUser = user.find((sUser) => sUser.email === email);
     return findUser;
   }
@@ -48,7 +48,7 @@ class UserMethod {
    * @returns {object}single User
    */
   findByUsername(username) {
-    const user = curd.read("user");
+    const user = crud.read("user");
     const findUser = user.find((sUser) => sUser.username === username);
     return findUser;
   }
@@ -60,7 +60,7 @@ class UserMethod {
    * @returns  {Array} find user Array
    */
   filterByUsername(username) {
-    const user = curd.read("user");
+    const user = crud.read("user");
     const findUser = user.filter((sUser) => sUser.username === username);
     return findUser;
   }
@@ -72,7 +72,7 @@ class UserMethod {
    * @returns  {Array} find user Array
    */
   filterByEmail(email) {
-    const user = curd.read("user");
+    const user = crud.read("user");
     const findUser = user.find((sUser) => sUser.email === email);
     return findUser;
   }
@@ -84,7 +84,7 @@ class UserMethod {
    * @returns {object} user object
    */
   deleteById(id) {
-    const user = curd.delete("user", id);
+    const user = crud.delete("user", id);
     return user;
   }
 
@@ -96,7 +96,7 @@ class UserMethod {
    * @returns {object} Delete User Object
    */
   updateById(id, data) {
-    const updatedUser = curd.update("user", id, data);
+    const updatedUser = crud.update("user", id, data);
     return updatedUser;
   }
 }
