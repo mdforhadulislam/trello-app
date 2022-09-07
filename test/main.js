@@ -1,3 +1,5 @@
+const userCRUD = require("../db/config/userCRUD");
 const curd = require("../lib/curd");
 
-console.log(curd.update("user", 14, { id: 14, main: "hello" }));
+
+console.log(userCRUD.userCreate("hello","hello","fff","12"));
