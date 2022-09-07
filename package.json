@@ -1,43 +1,31 @@
 {
-  "name": "trellor-backend-applications",
+  "name": "terllo-api",
   "version": "1.0.0",
-  "description": "this is trellor backend api application ",
-  "main": "server.js",
+  "description": "this api working as like terllo system backend api",
+  "main": "index.js",
+  "author": "Forhadul Islam",
+  "license": "MIT",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [
-    "trellor",
-    "backend",
-    "applications"
+    "terllo",
+    "application",
+    "api"
   ],
-  "author": "Forhadul Islam",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mdforhadulislam/trello-backend-applications.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mdforhadulislam/trello-backend-applications/issues"
-  },
-  "homepage": "https://github.com/mdforhadulislam/trello-backend-applications#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "eslint": "^8.23.0",
+    "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "express-fileupload": "^1.4.0",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.19",
     "shortid": "^2.2.16"
   },
   "devDependencies": {
-    "@vercel/node": "^2.5.11"
-  },
-  "directories": {
-    "lib": "lib",
-    "test": "test"
+    "eslint": "^8.23.0",
+    "nodemon": "^2.0.19"
   }
 }

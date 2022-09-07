@@ -1,14 +1,13 @@
 const express = require("express");
+const app = express();
 const cros = require("cors");
-const morgan = require("morgan");
-const fileUpload = require("express-fileupload");
+const expressFileUploader = require("express-fileupload");
 
-const middleweares = [
+const middlewares = [
   cros(),
-  morgan("dev"),
-  fileUpload(),
-  express.json({ limit: "50mb" }),
-  express.urlencoded({ limit: "250mb", extended: false }),
+  express.json(),
+  express.urlencoded({ extended: false }),
+  expressFileUploader(),
 ];
 
-module.exports = middleweares;
+module.exports = middlewares;
