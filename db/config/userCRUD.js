@@ -6,13 +6,13 @@ class UserMethod {
    * created User
    ********************
    * @param {string} name
-   * @param {string} usrname
+   * @param {string} username
    * @param {string} email
    * @param {string} password
    * @returns {object} created user
    */
-  userCreate(name, usrname, email, password) {
-    const newUser = new User(name, usrname, email, password);
+  userCreate(name, username, email, password) {
+    const newUser = new User(name, username, email, password);
     const user = crud.create("user", newUser);
     return user;
   }
@@ -73,7 +73,7 @@ class UserMethod {
    */
   filterByEmail(email) {
     const user = crud.read("user");
-    const findUser = user.find((sUser) => sUser.email === email);
+    const findUser = user.filter((sUser) => sUser.email === email);
     return findUser;
   }
 
