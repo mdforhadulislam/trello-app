@@ -1,3 +1,7 @@
+const {
+  tokenCreat,
+  tokenRegisterThisId,
+} = require("../../db/config/tokenCRUD");
 const { findByEmail } = require("../../db/config/userCRUD");
 const { compareHash } = require("../../utils/hash");
 
@@ -8,7 +12,17 @@ const loginUserHendler = (req, res) => {
     if (email && password) {
       const user = findByEmail(email);
       if (user && compareHash(password, user.password)) {
-         
+        const userAnotherToken = tokenRegisterThisId(user.id);
+        if (userAnotherToken.length < 3) {
+          const token = tokenCreat(user.id);
+          res
+            .status(200)
+            .json({ message: "Login Success", token: token.token });
+        } else {
+          res
+            .status(400)
+            .json({ message: "you are alrady login another device" });
+        }
       } else {
         res.status(400).json({ message: "you are not allow" });
       }

@@ -5,8 +5,8 @@ const boardRouter = require("../routers/boardRoutes");
 const listRouter = require("../routers/listRoutes");
 const taskRouter = require("../routers/taskRoutes");
 
-router.get("/health", (req, res) => {
-  res.json({
+router.get("/health", (_req, res) => {
+  res.status(200).json({
     message: "success",
   });
 });
