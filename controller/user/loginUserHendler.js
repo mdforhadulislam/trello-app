@@ -28,10 +28,10 @@ const loginUserHendler = (req, res) => {
       }
       if (user) {
       } else {
-        res.status(500).json({ message: "you have no account" });
+        res.status(404).json({ message: "you have no account" });
       }
     } else {
-      res.status(500).json({ message: "send valid value" });
+      res.status(400).json({ message: "send valid value" });
     }
   } catch (error) {
     console.table(error);

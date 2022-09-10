@@ -1,6 +1,13 @@
 const shortId = require("shortid");
 
 class Task {
+  /**********************
+   * task creation models
+   **********************
+   * @param {string} task
+   * @param {string} done
+   * @param {string} list_id
+   */
   constructor(task, done, list_id) {
     this.id = shortId.generate();
     this.task = task;

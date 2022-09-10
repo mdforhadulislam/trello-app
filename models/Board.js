@@ -1,6 +1,13 @@
 const shortId = require("shortid");
 
 class Board {
+  /***************************
+   * board createion model
+   *****************************
+   * @param {string} name
+   * @param {string} color
+   * @param {string} user
+   */
   constructor(name, color, user) {
     this.id = shortId.generate();
     this.name = name;
@@ -11,5 +18,4 @@ class Board {
   }
 }
 
-
-module.exports = Board
+module.exports = Board;
