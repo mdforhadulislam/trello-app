@@ -12,7 +12,7 @@ class Board {
     this.id = shortId.generate();
     this.name = name;
     this.color = color;
-    this.user = user;
+    this.user = [user];
     this.createAt = new Date();
     this.updateAt = new Date();
   }
