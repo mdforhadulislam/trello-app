@@ -34,7 +34,7 @@ const loginUserHendler = (req, res) => {
       res.status(400).json({ message: "send valid value" });
     }
   } catch (error) {
-    console.table(error);
+    console.log(error);
     res.status(500).json({ message: "Intarnal Server Error" });
   }
 };

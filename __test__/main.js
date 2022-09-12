@@ -6,6 +6,7 @@ const {
   boardFindById,
   boardListCheckingUser,
 } = require("../db/config/boardCRUD");
+const { boardDeleteByListDelete } = require("../db/config/listCRUD");
 const { tokenCreat, findByTokenToGetId } = require("../db/config/tokenCRUD");
 const userCRUD = require("../db/config/userCRUD");
 const curd = require("../lib/crud");
@@ -14,5 +15,6 @@ const curd = require("../lib/crud");
 // console.log(deleteBoard("I2M-gCFeY"));
 // console.log(boardFindById("68TEpN2Wo"));
 
+// console.log(boardListCheckingUser("forhad","ig7CGog0xu"));
 
-console.log(boardListCheckingUser("forhad","ig7CGog0xu"));
+// console.log(boardDeleteByListDelete("68TEpN2W1"));

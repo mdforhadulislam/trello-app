@@ -32,7 +32,7 @@ const singleBoardGetHendler = (req, res) => {
       res.status(500).json({ message: "board not found" });
     }
   } catch (error) {
-    console.table(error);
+    console.log(error);
     res.status(500).json({ message: "Intarnal Server Error" });
   }
 };

@@ -20,7 +20,7 @@ const getAllBoardHendler = (req, res) => {
       res.status(401).json({ message: "you are not allow" });
     }
   } catch (error) {
-    console.table(error);
+    console.log(error);
     res.status(500).json({ message: "Intarnal Server Error" });
   }
 };

@@ -5,12 +5,8 @@ const deleteListHendler = require("../controller/list/deleteListHendler");
 const getAllListHendler = require("../controller/list/getAllListHendler");
 const updateListHendler = require("../controller/list/updateListHendler");
 
-router.post("/", createListHendler);
+router.route("/").get(getAllListHendler).post(createListHendler);
 
-router
-  .route("/:id")
-  .get(getAllListHendler)
-  .put(updateListHendler)
-  .delete(deleteListHendler);
+router.route("/:id").put(updateListHendler).delete(deleteListHendler);
 
 module.exports = router;

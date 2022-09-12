@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "jest --detectOpenHandles --runInBand",
+    "test": "jest --watch ",
     "dev": "nodemon server.js",
     "start": "node server.js"
   },
@@ -17,6 +17,7 @@
     "api"
   ],
   "dependencies": {
+    "@types/jest": "^29.0.1",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",

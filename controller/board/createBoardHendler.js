@@ -18,7 +18,7 @@ const createBoardHendler = (req, res) => {
         if (user) {
           const newBoard = createBoard(name, color, user);
 
-          res.status(200).json({ message: newBoard });
+          res.status(200).json(newBoard);
         } else {
           res.status(401).json({ message: "you are not allow" });
         }
@@ -29,7 +29,7 @@ const createBoardHendler = (req, res) => {
       res.status(400).json({ message: "send valid value" });
     }
   } catch (error) {
-    console.table(error);
+    console.log(error);
     res.status(500).json({ message: "Intarnal Server Error" });
   }
 };
