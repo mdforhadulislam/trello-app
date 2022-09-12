@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "jest --watch ",
+    "test": "jest --detectOpenHandles --runInBand --watchAll",
     "dev": "nodemon server.js",
     "start": "node server.js"
   },

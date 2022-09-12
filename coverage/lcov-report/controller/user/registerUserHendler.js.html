@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for db/config/listCRUD.js</title>
+    <title>Code coverage report for controller/user/registerUserHendler.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">db/config</a> listCRUD.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">controller/user</a> registerUserHendler.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.68% </span>
+                <span class="strong">23.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/47</span>
+                <span class='fraction'>10/43</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/7</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.68% </span>
+                <span class="strong">23.25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/47</span>
+                <span class='fraction'>10/43</span>
             </div>
         
             
@@ -106,11 +106,8 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -125,21 +122,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -148,62 +130,68 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const crud = require("../../lib/crud");
-const List = require("../../models/List");
-const { boardFindById, updateBoard, findAllBoard } = require("./boardCRUD");
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const { convartHash } = require("../../utils/hash");
+const {
+  filterByEmail,
+  filterByUsername,
+  userCreate,
+} = require("../../db/config/userCRUD");
 &nbsp;
-class ListMethod {
-  constructor() {}
-<span class="fstat-no" title="function not covered" >  listCreate(name, color, board_id) {</span>
-<span class="cstat-no" title="statement not covered" >    const findBoard = crud.read("board").find((board) =&gt; board.id === board_id);</span>
-<span class="cstat-no" title="statement not covered" >    if (findBoard) {</span>
-<span class="cstat-no" title="statement not covered" >      const newList = new List(name, color, board_id);</span>
-<span class="cstat-no" title="statement not covered" >      const createList = crud.create("list", newList);</span>
-<span class="cstat-no" title="statement not covered" >      return createList;</span>
+const registerUserHendler = <span class="fstat-no" title="function not covered" >(req, res) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    const name = req.body.name ?? false;</span>
+<span class="cstat-no" title="statement not covered" >    const email = req.body.email ?? false;</span>
+<span class="cstat-no" title="statement not covered" >    const username = req.body.username ?? false;</span>
+<span class="cstat-no" title="statement not covered" >    const password = convartHash(req.body.password) ?? false;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    if (name &amp;&amp; username &amp;&amp; email &amp;&amp; password) {</span>
+<span class="cstat-no" title="statement not covered" >      const checkEmail = filterByEmail(email);</span>
+<span class="cstat-no" title="statement not covered" >      const checkUsername = filterByUsername(username);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      if (checkEmail.length !== 0 &amp;&amp; checkUsername.length !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >        return res</span>
+<span class="cstat-no" title="statement not covered" >          .status(400)</span>
+<span class="cstat-no" title="statement not covered" >          .json({ message: "email and username alrady used" });</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" >      if (checkEmail.length !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >        return res.status(400).json({ message: "email alrady used" });</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" >      if (checkUsername.length !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >        return res.status(400).json({ message: "username alrady used" });</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      const user = userCreate(name, username, email, password);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      res.status(200).json({ message: user });</span>
+<span class="cstat-no" title="statement not covered" >    } else {</span>
+<span class="cstat-no" title="statement not covered" >      res.status(400).json({ message: "send valid value" });</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    return false;</span>
+<span class="cstat-no" title="statement not covered" >  } catch (error) {</span>
+<span class="cstat-no" title="statement not covered" >    console.log(error);</span>
+<span class="cstat-no" title="statement not covered" >    res.status(500).json({ message: "Intarnal Server Error" });</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-  listFilterByBoardId(board_id) {
-    const allList = crud.read("list");
-    const filteringList = allList.filter((list) =&gt; list.board_id === board_id);
-    return filteringList;
-  }
-<span class="fstat-no" title="function not covered" >  listDeleteById(list_id) {</span>
-<span class="cstat-no" title="statement not covered" >    const deleteList = crud.delete("list", list_id);</span>
-<span class="cstat-no" title="statement not covered" >    return deleteList;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="fstat-no" title="function not covered" >  listUpdateById(id, data) {</span>
-<span class="cstat-no" title="statement not covered" >    const updateList = crud.update("list", id, data);</span>
-<span class="cstat-no" title="statement not covered" >    return updateList;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >  boardDeleteByListDelete(board_id) {</span>
-<span class="cstat-no" title="statement not covered" >    const allList = crud.read("list");</span>
-<span class="cstat-no" title="statement not covered" >    const findList = allList.filter((list) =&gt; list.board_id === board_id);</span>
-<span class="cstat-no" title="statement not covered" >    let deleteList = new Array();</span>
-<span class="cstat-no" title="statement not covered" >    findList.forEach((list) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      deleteList.push(crud.delete("list", list.id));</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" >    return deleteList;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-&nbsp;
-<span class="fstat-no" title="function not covered" >  listFindById(id) {</span>
-<span class="cstat-no" title="statement not covered" >    const allList = crud.read("list");</span>
-<span class="cstat-no" title="statement not covered" >    const filteringList = allList.find((list) =&gt; list.id === id);</span>
-<span class="cstat-no" title="statement not covered" >    return filteringList;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-}
-&nbsp;
-module.exports = new ListMethod();
+module.exports = registerUserHendler;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
