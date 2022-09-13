@@ -5,6 +5,7 @@ const deleteListHendler = (req, res) => {
     const { id } = req.params;
 
     const deleteList = listDeleteById(id);
+    
     res.status(200).json(deleteList);
   } catch (error) {
     console.log(error);

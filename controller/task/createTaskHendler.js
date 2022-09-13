@@ -8,7 +8,7 @@ const createTaskHendler = (req, res) => {
     list_Id = list_Id.length > 0 ? list_Id : false;
 
     if ((task || done) && list_Id) {
-      // const newTask = new Task(task, done, list_Id);
+      
     } else {
       res.status(500).json({ message: "send valid value" });
     }
