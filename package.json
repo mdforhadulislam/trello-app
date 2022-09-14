@@ -1,6 +1,6 @@
 {
-  "name": "terllo-api",
-  "version": "1.1.1",
+  "name": "terllo-app",
+  "version": "1.0.0",
   "description": "this api working as like terllo system backend api",
   "main": "index.js",
   "author": "Forhadul Islam",
@@ -37,15 +37,14 @@
     "nodemon": "^2.0.19"
   },
   "directories": {
-    "lib": "lib",
-    "test": "test"
+    "lib": "lib"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mdforhadulislam/trello-backend-applications.git"
+    "url": "git+https://github.com/mdforhadulislam/trello-app.git"
   },
   "bugs": {
-    "url": "https://github.com/mdforhadulislam/trello-backend-applications/issues"
+    "url": "https://github.com/mdforhadulislam/trello-app.git"
   },
-  "homepage": "https://github.com/mdforhadulislam/trello-backend-applications#readme"
+  "homepage": "https://github.com/mdforhadulislam/trello-app.git#readme"
 }
