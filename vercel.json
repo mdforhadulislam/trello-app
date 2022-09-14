@@ -1,21 +1,27 @@
 {
-
-  "version": 1,
-
+  "version": 2,
   "builds": [
-
     {
-
-      // Specify file to convert to a serverless function
-
-      "src": "server.js",
-
-      // Specify the NPM module that is used for the build
-
-      "use": "@now/node"
-
+      "src": "./server.js",
+      "use": "@now/node-server"
     }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    {
+      "src": "/.*",
+      "dest": "server.js"
+    }
+  ],
 
-  ]
-
+  "functions": {
+    "pages/api/hello.js": {
+      "memory": 3008,
+      "maxDuration": 60
+    },
+    "pages/api/another.js": {
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  }
 }
