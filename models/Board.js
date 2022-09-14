@@ -11,7 +11,7 @@ class Board {
   constructor(name, color, user) {
     this.id = shortId.generate();
     this.name = name;
-    this.color = color;
+    this.color = color ? color : "";
     this.user = [user];
     this.createAt = new Date();
     this.updateAt = new Date();

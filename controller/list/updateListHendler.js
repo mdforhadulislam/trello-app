@@ -4,29 +4,17 @@ const crud = require("../../lib/crud");
 const updateListHendler = (req, res) => {
   try {
     const { id } = req.params;
+    let { name, color } = req.body;
 
-    const findList = listFindById(id);
-    if (findList) {
-      let { name, color } = req.body;
+    name = name.length > 0 ? name : false;
+    color = color.length > 0 ? color : "";
 
-      name = name.length > 0 ? name : findList.name;
-      color = color.length > 0 ? color : findList.color;
+    if (name && color) {
+      const newList = listUpdateById(id, name, color);
 
-      if (name && color) {
-        const updateList = {
-          ...findList,
-          name: name,
-          color: color,
-          updateAt: new Date(),
-        };
-        const newList = listUpdateById(findList.id, updateList);
-
-        res.status(400).json(newList);
-      } else {
-        res.status(400).json({ message: "send valid value" });
-      }
+      res.status(400).json(newList);
     } else {
-      res.status(400).json({ message: "list not found" });
+      res.status(400).json({ message: "send valid value" });
     }
   } catch (error) {
     console.log(error);

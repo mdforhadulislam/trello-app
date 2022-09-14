@@ -2,6 +2,8 @@ const crud = require("../../lib/crud");
 const User = require("../../models/User");
 
 class UserMethod {
+  constructor() {}
+
   /********************
    * created User
    ********************

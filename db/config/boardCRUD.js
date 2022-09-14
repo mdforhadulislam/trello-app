@@ -113,12 +113,26 @@ class BoardMethod {
     );
     return filterBoard;
   }
+
+  /********************
+   * boards find by id
+   ********************
+   * @param {string} id
+   * @returns {object} single board
+   */
   boardFindById(id) {
     const allBoards = crud.read("board");
     const findBoard = allBoards.find((board) => board.id === id);
     return findBoard;
   }
 
+  /**********************************************
+   * when user get board then checking user board
+   **********************************************
+   * @param {string} username
+   * @param {string} board_id
+   * @returns {boolean} true or false
+   */
   boardListCheckingUser(username, board_id) {
     const findUser = findByUsername(username);
     const matchingUser = findUser.boards.find(

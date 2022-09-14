@@ -30,7 +30,7 @@ const registerUserHendler = (req, res) => {
 
       const user = userCreate(name, username, email, password);
 
-      res.status(200).json({ message: user });
+      res.status(200).json({ message: "registration Successfull" });
     } else {
       res.status(400).json({ message: "send valid value" });
     }

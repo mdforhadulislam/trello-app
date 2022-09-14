@@ -4,7 +4,7 @@ const accountDaitelsHendler = (req, res) => {
   try {
     const { username } = req.params;
     const user = findByUsername(username);
-    delete user.password
+    delete user.password;
     if (user) {
       res.status(200).json({ message: user });
     } else {

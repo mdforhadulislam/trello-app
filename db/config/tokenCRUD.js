@@ -1,7 +1,8 @@
 const crud = require("../../lib/crud");
-const { convartHash } = require("../../utils/hash");
 
 class TokenMethod {
+  constructor() {}
+
   /*********************
    * Token genarator
    *********************
