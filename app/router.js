@@ -6,6 +6,13 @@ const listRouter = require("../routers/listRoutes");
 const taskRouter = require("../routers/taskRoutes");
 const checkLogin = require("../middlewares/checkLogin");
 
+
+router.get("/", (_req, res) => {
+  res.status(200).json({
+    message: "success",
+  });
+});
+
 router.get("/health", (_req, res) => {
   res.status(200).json({
     message: "success",
