@@ -40,7 +40,6 @@
   },
   "homepage": "https://github.com/mdforhadulislam/trello-backend-applications#readme",
   "engines": {
-    "node": "18.9.0",
-    "npm": "8.19.1"
+    "node": "16.0.0"
   }
 }
