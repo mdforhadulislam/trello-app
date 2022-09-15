@@ -28,9 +28,6 @@
     "eslint": "^8.23.0",
     "nodemon": "^2.0.19"
   },
-  "directories": {
-    "lib": "lib"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mdforhadulislam/trello-backend-applications.git"
