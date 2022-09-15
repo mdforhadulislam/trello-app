@@ -12,7 +12,6 @@ const getAllListHendler = (req, res) => {
       res.status(400).json({ message: "requested query paramiters not found" });
     }
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: "Intarnal Server Error" });
   }
 };

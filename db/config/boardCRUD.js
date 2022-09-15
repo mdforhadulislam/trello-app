@@ -13,7 +13,6 @@ class BoardMethod {
    */
   createBoard(name, color, user) {
     const checkUser = findByUsername(user.username);
-    console.log(checkUser);
     if (checkUser) {
       const newBoard = new Board(name, color, user.username);
 

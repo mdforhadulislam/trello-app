@@ -24,7 +24,6 @@ const logoutUserHendler = (req, res) => {
       res.status(400).json({ message: "Send token" });
     }
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: "Intarnal Server Error" });
   }
 };

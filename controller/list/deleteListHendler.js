@@ -8,7 +8,6 @@ const deleteListHendler = (req, res) => {
 
     res.status(200).json(deleteList);
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: "Intarnal Server Error" });
   }
 };
