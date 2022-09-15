@@ -11,16 +11,5 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ],
-
-  "functions": {
-    "pages/api/hello.js": {
-      "memory": 3008,
-      "maxDuration": 60
-    },
-    "pages/api/another.js": {
-      "memory": 1024,
-      "maxDuration": 30
-    }
-  }
+  ]
 }
