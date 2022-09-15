@@ -2,12 +2,12 @@
   "name": "terllo-app",
   "version": "1.0.0",
   "description": "this api working as like terllo system backend api",
-  "main": "index.js",
+  "main": "server.js",
   "author": "Forhadul Islam",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "node server.js",
     "start": "node server.js"
   },
   "keywords": [
@@ -15,6 +15,10 @@
     "application",
     "api"
   ],
+  "engines": {
+    "node": "18.9.0",
+    "npm": "8.19.1"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
@@ -38,9 +42,5 @@
   "bugs": {
     "url": "https://github.com/mdforhadulislam/trello-backend-applications/issues"
   },
-  "homepage": "https://github.com/mdforhadulislam/trello-backend-applications#readme",
-  "engines": {
-    "node": "16.15.0",
-    "npm": "8.5.5"
-  }
+  "homepage": "https://github.com/mdforhadulislam/trello-backend-applications#readme"
 }
