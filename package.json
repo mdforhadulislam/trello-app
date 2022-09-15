@@ -15,10 +15,6 @@
     "application",
     "api"
   ],
-  "engines": {
-    "node": "18.9.0",
-    "npm": "8.19.1"
-  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
